@@ -1,101 +1,130 @@
 import Image from "next/image";
+import { Suspense } from "react";
+import { Integralcf } from "./layout";
+import Skeleton from "react-loading-skeleton";
+import herpImage from "@/public/assets/Images/homeBanner.png";
+import Star from "./_components/Star";
+import BrandsLine from "./_components/BrandsLine";
+import NewArrival from "./_components/NewArrival";
+import TopSelling from "./_components/TopSelling";
+import SliderComponent from "./_components/SliderComponent";
+import Link from "next/link";
+import CollectionCatogry from "./_components/CollectionCatogry";
+import { getRating } from "./_lib/OurApis";
+import { auth } from "./_lib/Auth";
 
-export default function Home() {
+async function page() {
+  const ratings = await getRating();
+  const session = await auth();
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <>
+      <main>
+        <section className="flex items-center just  ify-between bg-primary-darkWhite h-full px-20 overflow-x-hidden">
+          <div className="flex flex-col items-start gap-7 flex-1">
+            <h1 className={`${Integralcf.className} text-5xl text-balance `}>
+              FIND CLOTHES THAT MATCHES YOUR STYLE
+            </h1>
+            <p className="text-primary-Black text-opacity-60 font-normal text-balance text-[16px] leading-[22px]">
+              Browse through our diverse range of meticulously crafted garments,
+              designed to bring out your individuality and cater to your sense
+              of style.
+            </p>
+            {session ? (
+              <Link href="/collection">
+                <button className="bg-primary-Black py-3 px-20 text-primary-White font-bold rounded-full relative hover:bg-primary-darkWhite hover:text-primary-Black duration-500 border border-primary-Black  ">
+                  Shop Now
+                </button>
+              </Link>
+            ) : (
+              <Link href="/login">
+                <button className="bg-primary-Black py-3 px-20 text-primary-White font-bold rounded-full relative hover:bg-primary-darkWhite hover:text-primary-Black duration-500 border border-primary-Black  ">
+                  Login and Shop Now
+                </button>
+              </Link>
+            )}
+            <div className=" flex gap-7 items-center [&>span]:border-r-2 [&>span]:border-r-primary-Black [&>span]:border-opacity-10 [&>span:nth-child(3)]:border-0 [&>span]:pr-5 [&>span>h3]:text-[3rem] [&>span>h3]:font-bold [&>span>p]:text-[1.2rem]">
+              <span>
+                <h3>200+</h3>
+                <p>International Brands</p>
+              </span>
+              <span>
+                <h3>2,000+</h3>
+                <p>High-Quality Products</p>
+              </span>
+              <span>
+                <h3>30,000+</h3>
+                <p>Happy Customers</p>
+              </span>
+            </div>
+          </div>
+          <div className="relative">
+            <Star className="absolute right-0 top-[15%]" />
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src={herpImage}
+              placeholder="blur"
+              className="object-cover"
+              alt="Men and woman with amazing clothes from our store"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <Star className="absolute bottom-[40%] " />
+          </div>
+        </section>
+        <BrandsLine />
+        <section className="py-32 my-10 px-20 flex flex-col gap-7 border-b-2 border-primary-darkWhite">
+          <h1 className={`${Integralcf.className} text-center text-5xl  `}>
+            NEW
+            <span className="before-line">ARRIVALS</span>
+          </h1>
+          <Suspense
+            fallback={
+              <Skeleton
+                count={4}
+                containerClassName="w-full h-full flex gap-7"
+                className="min-h-[260px] rounded-xl"
+              />
+            }
           >
-            Read our docs
-          </a>
-        </div>
+            <NewArrival />
+          </Suspense>
+        </section>
+        <section className="py-32 my-10 px-20 flex flex-col gap-7 border-b-2 border-primary-darkWhite">
+          <h1 className={`${Integralcf.className} text-center text-5xl  `}>
+            top
+            <span className="before-line">selling</span>
+          </h1>
+          <Suspense
+            fallback={
+              <Skeleton
+                count={4}
+                containerClassName="w-full h-full flex gap-7"
+                className="min-h-[260px] rounded-xl"
+              />
+            }
+          >
+            <TopSelling />
+          </Suspense>
+        </section>
+        <CollectionCatogry />
+        <section className="slider-container overflow-x-hidden py-32 ">
+          <h1
+            className={`text-5xl font-bold ${Integralcf.className} mb-20 pl-20`}
+          >
+            OUR HAPPY CUSTOMERS
+          </h1>
+          <Suspense
+            fallback={
+              <Skeleton
+                count={3}
+                containerClassName="flex gap-7 items-center"
+                className="min-h-[200px]"
+              />
+            }
+          >
+            <SliderComponent ratings={ratings} />
+          </Suspense>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
+
+export default page;

@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-size: 75%;
+}
+::-webkit-scrollbar {
+  background-color: #fff;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #000;
+}
+@layer components {
+  .before-line {
+    @apply relative before:absolute before:top-0 before:content-[''] before:h-full before:w-full before:-z-10 before:-skew-x-6 before:bg-primary-goldenYellow;
+  }
+}
