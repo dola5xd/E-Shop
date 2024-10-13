@@ -1,9 +1,9 @@
 import Image from "next/image";
-import versace from "@/public/assets/images/versace-brand.png";
-import zara from "@/public/assets/images/zara-brand.png";
-import gucci from "@/public/assets/images/Gucci-brand.png";
-import prada from "@/public/assets/images/prada.png";
-import calvin from "@/public/assets/images/calvin-brand.png";
+import versace from "../../public/assets/images/versace-brand.png";
+import zara from "../../public/assets/images/zara-brand.png";
+import gucci from "../../public/assets/images/Gucci-brand.png";
+import prada from "../../public/assets/images/prada.png";
+import calvin from "../../public/assets/images/calvin-brand.png";
 
 function BrandsLine() {
   return (
