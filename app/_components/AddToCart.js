@@ -4,33 +4,40 @@ import Link from "next/link";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { addtoCart } from "../_lib/actions";
-import { useRouter } from "next/navigation";
 
 function AddToCart({ isLogedIn, data }) {
-  const router = useRouter();
   const { id, title, description, price, images } = data;
 
   const [count, setCount] = useState(1);
   const { setCart, cart } = useCart();
 
-  function handelProduct() {
+  async function handelProduct() {
     if (count === 0) return;
+
+    const existProductCount = cart
+      .filter((items) => items.id === id)
+      .map((item) => item.count)
+      .reduce((pre, cur) => pre + cur, 0);
+
     const product = {
       id,
       title,
       description,
       price,
       images,
-      count,
+      count: count + existProductCount,
       added_at: new Date(),
     };
-    setCart((prev) => [
-      ...prev.filter((item) => item.title !== title),
-      product,
-    ]);
+
+    setCart((prev) => [...prev.filter((item) => item.id !== id), product]);
+    localStorage.setItem(
+      "cart",
+      JSON.stringify([...cart.filter((item) => item.id !== id), product])
+    );
+
     toast(
       (t) => (
-        <span className="text-balance">
+        <span className="md:text-balance text-wrap text-sm md:text-base">
           This product has been added succesfully! go to{" "}
           <Link href="/cart" className="underline">
             your cart
@@ -44,6 +51,7 @@ function AddToCart({ isLogedIn, data }) {
           backgroundColor: "#101010",
           fontSize: "18px",
           fontWeight: "bold",
+          left: "50%",
         },
         iconTheme: {
           primary: "#fff",
@@ -52,11 +60,14 @@ function AddToCart({ isLogedIn, data }) {
         icon: "✔",
       }
     );
+
+    if (isLogedIn)
+      await addtoCart([...cart.filter((item) => item.id !== id), product]);
   }
 
   return (
-    <div className="flex items-center gap-4">
-      <div className="flex-1 bg-primary-darkWhite py-3 px-5 font-bold rounded-full flex items-center justify-between text-lg">
+    <div className="flex items-center gap-7 md:gap-4 flex-col md:flex-row">
+      <div className="flex-1 bg-primary-darkWhite py-3 px-5 font-bold rounded-full flex items-center justify-between text-lg w-full md:w-auto">
         <button
           className="text-3xl"
           onClick={() => setCount((prev) => (prev > 0 ? prev - 1 : 0))}
@@ -71,23 +82,13 @@ function AddToCart({ isLogedIn, data }) {
           +
         </button>
       </div>
-      {!isLogedIn ? (
-        <button
-          className="bg-primary-Black py-3 px-20 text-primary-White font-bold rounded-full relative hover:bg-primary-darkWhite hover:text-primary-Black duration-500 border border-primary-Black flex-1"
-          onClick={() => router.push("/login")}
-        >
-          Join us and start shopping!
-        </button>
-      ) : (
-        <form action={() => addtoCart(cart)}>
-          <button
-            className="bg-primary-Black py-3 px-20 text-primary-White font-bold rounded-full relative hover:bg-primary-darkWhite hover:text-primary-Black duration-500 border border-primary-Black flex-1"
-            onClick={handelProduct}
-          >
-            Add To Card
-          </button>
-        </form>
-      )}
+
+      <button
+        className="bg-primary-Black py-3 px-20 text-sm md:text-base w-full md:w-auto md:px-20 text-primary-White font-bold rounded-full relative hover:bg-primary-darkWhite hover:text-primary-Black duration-500 border border-primary-Black flex-1"
+        onClick={handelProduct}
+      >
+        Add To Card
+      </button>
     </div>
   );
 }

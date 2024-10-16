@@ -5,9 +5,12 @@ import { useCart } from "../_context/CartContext";
 
 function CartIcon() {
   const { cart } = useCart();
+  const productsCounts = cart
+    .map((item) => item.count)
+    .reduce((pre, cur) => pre + cur, 0);
 
   return (
-    <Link href="/cart">
+    <Link href="/cart" className="m-0 -mb-[5px]">
       <button className="relative">
         <Image
           src="/assets/Svg/Cart.svg"
@@ -16,8 +19,8 @@ function CartIcon() {
           height="25"
         />
         {cart.length !== 0 && (
-          <span className=" absolute -top-5 -right-4 text-lg text-white bg-black text-center w-6 h-6 rounded-full flex items-center justify-center">
-            {cart.length}
+          <span className="absolute -top-5 -right-2 md:-right-4 text-lg text-white bg-black text-center w-6 h-6 rounded-full flex items-center justify-center">
+            {productsCounts}
           </span>
         )}
       </button>

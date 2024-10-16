@@ -2,10 +2,10 @@ import { Integralcf } from "../layout";
 
 function Subscribe() {
   return (
-    <div className=" px-10">
-      <div className="bg-primary-Black text-primary-White flex items-center justify-between rounded-xl py-20 px-20 translate-y-28 ">
+    <div className="px-5 sm:px-10">
+      <div className="bg-primary-Black text-primary-White flex items-center justify-between rounded-xl py-10 sm:py-20 px-7 sm:px-20 sm:translate-y-28 flex-col gap-10 sm:gap-0 sm:flex-row">
         <h1
-          className={`${Integralcf.className}  text-[2.5rem] font-bold w-2/3`}
+          className={`${Integralcf.className} text-xl sm:text-4xl font-bold sm:w-2/3`}
         >
           STAY UPTO DATE ABOUT OUR LATEST OFFERS
         </h1>
@@ -13,9 +13,9 @@ function Subscribe() {
           <input
             type="text"
             placeholder="Enter your email address"
-            className="py-4 rounded-2xl px-7"
+            className="p-4 px-7 sm:py-4 rounded-2xl placeholder:text-sm"
           />
-          <button className="bg-primary-White text-primary-Black text-[1rem] font-medium py-3 rounded-2xl">
+          <button className="bg-primary-White text-primary-Black text-sm sm:text-base  font-medium py-3 rounded-2xl">
             Subscribe to Newsletter
           </button>
         </div>

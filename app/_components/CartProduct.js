@@ -3,14 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "../_context/CartContext";
+import { addtoCart } from "../_lib/actions";
 
 function CartProduct({ item }) {
   const { images, count, title, description, price, id, added_at } = item;
   const [newCount, setNewCount] = useState(count);
-  const { setCart } = useCart();
+  const { setCart, cart } = useCart();
 
   function handelDelete() {
     setCart((prev) => prev.filter((product) => product.id !== id));
+    localStorage.setItem(
+      "cart",
+      JSON.stringify(cart.filter((item) => item.id !== id))
+    );
   }
 
   useEffect(() => {
@@ -32,24 +37,35 @@ function CartProduct({ item }) {
         editProduct,
       ]);
     }
+    localStorage.setItem("cart", JSON.stringify(cart));
   }, [newCount, count, setCart]);
 
   return (
-    <li className="flex items-center gap-4 py-3 w-full ">
-      <div className="relative w-[150px] h-[150px]">
+    <li className="flex items-center gap-7 md:gap-4 md:py-3 w-full flex-col md:flex-row ">
+      <div className="relative aspect-square h-[150px]">
         <Link href={`/product/${id}`}>
-          <Image src={images} fill alt={description} className="rounded" />
+          <Image
+            src={images}
+            fill
+            alt={description}
+            className="rounded object-cover"
+          />
         </Link>
       </div>
-      <div className="flex flex-col w-1/3 gap-3">
+      <div className="flex flex-col gap-5 md:w-1/3 md:gap-3">
         <h1 className="text-base font-bold text-nowrap">{title}</h1>
 
         <p className="font-bold text-2xl">
           $ {Number(newCount * price).toFixed(2)}
         </p>
       </div>
-      <div className="flex flex-col items-end gap-12 h-full w-1/3">
-        <button onClick={handelDelete}>
+      <div className="flex items-center md:flex-col md:items-end gap-5 md:gap-12 h-full w-full md:w-1/3">
+        <button
+          onClick={async () => {
+            handelDelete();
+            await addtoCart(cart.filter((item) => item.id !== id));
+          }}
+        >
           <svg
             width="18"
             height="20"
@@ -63,7 +79,7 @@ function CartProduct({ item }) {
             />
           </svg>
         </button>
-        <div className="flex-1 bg-primary-darkWhite py-3 px-5 font-bold rounded-full flex items-center justify-between text-lg w-[calc(100%_-_20px)]">
+        <div className="flex-1 bg-primary-darkWhite py-3 px-5 font-bold rounded-full flex items-center justify-between text-lg w-full md:w-[calc(100%_-_20px)]">
           {" "}
           <button
             className="text-3xl"

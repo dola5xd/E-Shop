@@ -9,12 +9,14 @@ function Search() {
 
   function handelSearch(e) {
     e.preventDefault();
-    console.log("search: ", search);
     router.replace(`/search?query=${search}`);
   }
 
   return (
-    <form className="relative w-1/3" onSubmit={(e) => handelSearch(e)}>
+    <form
+      className="relative w-1/3 hidden sm:block"
+      onSubmit={(e) => handelSearch(e)}
+    >
       <input
         type="text"
         placeholder="Search for products..."

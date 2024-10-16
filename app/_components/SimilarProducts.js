@@ -9,7 +9,7 @@ async function SimilarProducts({ categoryType, title }) {
 
   return (
     <>
-      <div className=" flex flex-wrap  items-center justify-center gap-7 px-10 py-10">
+      <div className=" flex flex-wrap items-center justify-center gap-7 md:px-10 md:py-10">
         {Products.map((product) => (
           <ListItem key={product.id} product={product} />
         ))}

@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 
 function Star({ className }) {
+  const isMobile = window.matchMedia("(max-width: 640px)").matches;
+
   return (
     <motion.svg
       width="104"
@@ -9,9 +11,9 @@ function Star({ className }) {
       viewBox="0 0 104 104"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      animate={{ rotate: 360 }}
+      animate={!isMobile && { rotate: 360 }}
       transition={{
-        duration: 1,
+        duration: 2,
         repeat: Infinity,
         repeatType: "loop",
       }}

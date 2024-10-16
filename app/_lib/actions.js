@@ -1,12 +1,11 @@
 "use server";
 
-import { redirect } from "next/navigation";
 import { auth, signIn, signOut } from "./Auth";
 import { supabase } from "./supabase";
 import { revalidatePath } from "next/cache";
 
 export async function signInAction() {
-  await signIn("google", { redirectTo: "/" });
+  await signIn("google", { redirectTo: "/collection" });
 }
 export async function signOutAction() {
   await signOut({ redirectTo: "/" });

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { signOutAction } from "../_lib/actions";
+
 function Account({ fullname }) {
   const session = useSession();
 
@@ -41,7 +42,7 @@ function Account({ fullname }) {
         </span>
       </button>
       {openMenu && (
-        <ul className="bg-black/60 text-white text-base font-bold left-1/2 -translate-x-1/2 absolute z-10 py-4 px-4 flex flex-col rounded gap-3 [&>li>a]:duration-500 [&>li>button]:duration-500 hover:[&>li>a]:text-black/80 hover:[&>li>button]:text-black/80">
+        <ul className="bg-black/60 text-white text-base font-bold left-0 md:left-1/2 -translate-x-1/2 absolute z-10 py-4 px-4 flex flex-col rounded gap-3 [&>li>a]:duration-500 [&>li>button]:duration-500 hover:[&>li>a]:text-black/80 hover:[&>li>button]:text-black/80">
           <li onClick={() => setMenu(false)}>
             <Link href="/account">Account</Link>
           </li>

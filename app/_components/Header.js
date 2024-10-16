@@ -5,6 +5,8 @@ import Account from "./Account";
 import CartIcon from "./CartIcon";
 import { auth } from "../_lib/Auth";
 import { getUser } from "../_lib/OurApis";
+import MobileNav from "./MobileNav";
+import SearchMobile from "./SearchMobile";
 
 export const revalidate = 0;
 
@@ -16,7 +18,7 @@ async function Header() {
   return (
     <header>
       {!user && (
-        <div className="bg-primary-Black text-primary-White text-center py-2">
+        <div className="bg-primary-Black text-primary-White text-center py-2 text-xs sm:text-base">
           Sign up and get 20% off to your first order.
           <Link href="/login" className="underline ml-1">
             Login Now
@@ -24,12 +26,16 @@ async function Header() {
         </div>
       )}
       <nav
-        className={`flex items-center justify-between  text-[1.5rem] px-10 py-5`}
+        className={`flex items-center gap-7 sm:gap-0 justify-between  text-[1.5rem] px-5  sm:px-10 py-5`}
       >
-        <h1 className={`${Integralcf.className} text-[2.5rem]`}>
-          <Link href="/">SHOP.CO</Link>
-        </h1>
-        <ul className="flex items-center gap-4 text-[1.3rem]">
+        <div className="flex items-center gap-3">
+          <MobileNav />
+          <h1 className={`${Integralcf.className} text-lg sm:text-[2.5rem]`}>
+            <Link href="/">SHOP.CO</Link>
+          </h1>
+        </div>
+
+        <ul className="sm:flex items-center gap-4 text-[1.3rem] hidden">
           <li>
             <Link href="/collection">Shop</Link>
           </li>
@@ -40,10 +46,11 @@ async function Header() {
             <Link href="/collection?Sort=newest">New Arrivals</Link>
           </li>
         </ul>
-        <Search />
-        <div className="flex items-center gap-7">
-          <CartIcon />
 
+        <Search />
+        <div className="flex items-center gap-3 sm:gap-7">
+          <SearchMobile />
+          <CartIcon />
           <Account fullname={user?.fullname} />
         </div>
       </nav>

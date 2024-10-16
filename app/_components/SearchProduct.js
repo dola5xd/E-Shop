@@ -10,13 +10,13 @@ async function SearchProduct({ name }) {
   );
 
   return (
-    <div className=" py-10 px-20 flex gap-7 flex-wrap items-center justify-center">
+    <div className="py-10 md:px-20 flex gap-7 flex-wrap items-center justify-center">
       {filterProduct.length !== 0 ? (
         filterProduct.map((product) => (
           <ListItem product={product} key={product.id} />
         ))
       ) : (
-        <p className="font-bold text-2xl py-10 px-5 text-black/60">
+        <p className="font-bold text-lg md:text-2xl md:py-10 md:px-5 text-black/60">
           Sorry! you search for product not found on our{" "}
           <Link href="/collection" className="underline">
             collection

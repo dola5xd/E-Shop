@@ -1,22 +1,29 @@
 "use client";
 import { useSession } from "next-auth/react";
 import { createContext, useContext, useEffect, useState } from "react";
-import { getUser } from "../_lib/OurApis";
+import { addtoCart, getUser } from "../_lib/OurApis";
 const cartContext = createContext();
 
 function CartProvider({ children }) {
   const session = useSession();
   const [cart, setCart] = useState([]);
+  const localcart = localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [];
 
   useEffect(() => {
     async function getUserCart() {
       if (session.data) {
         const user = await getUser(session.data.user.email);
-        setCart(user.cart?.map((product) => JSON.parse(product)) || []);
+        const userCart = user.cart?.map((product) => JSON.parse(product));
+
+        setCart([...userCart, ...localcart] || []);
+      } else {
+        setCart(localcart || []);
       }
     }
     getUserCart();
-  }, [session]);
+  }, [session, setCart, localStorage]);
 
   return (
     <cartContext.Provider value={{ cart, setCart }}>

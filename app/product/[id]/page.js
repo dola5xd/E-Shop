@@ -58,6 +58,8 @@ function CategoryType(category) {
     ? "Bottoms"
     : category.includes("Jeans", 0)
     ? "Bottoms"
+    : category.includes("Shirts", 0)
+    ? "Shirts"
     : "";
   return categoryType;
 }
@@ -77,7 +79,7 @@ async function page({ params }) {
   const categoryType = CategoryType(data.category);
 
   return (
-    <div className="py-10 px-20 flex flex-col gap-7">
+    <div className="py-10 px-5 md:px-20 flex flex-col gap-7">
       <ul className="flex items-center gap-3 ">
         <li className="text-black/60">
           <Link href="/">Home</Link>
@@ -94,8 +96,8 @@ async function page({ params }) {
         <li className="text-black cursor-default">{categoryType}</li>
       </ul>
       <ProductDetails data={data} />
-      <div className="flex flex-col items-center py-20 gap-10">
-        <h1 className={`${Integralcf.className} text-4xl`}>
+      <div className="flex flex-col items-center py-10 md:py-20 gap-3 md:gap-10">
+        <h1 className={`${Integralcf.className} text-xl md:text-4xl`}>
           You might also like
         </h1>
         <Suspense
