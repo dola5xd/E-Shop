@@ -5,12 +5,16 @@ import { addtoCart, getUser } from "../_lib/OurApis";
 const cartContext = createContext();
 
 function CartProvider({ children }) {
+  const ISSERVER = typeof window === "undefined";
+
   const session = useSession();
   const [cart, setCart] = useState([]);
-  const localcart = localStorage.getItem("cart")
-    ? JSON.parse(localStorage.getItem("cart"))
-    : [];
-
+  let localcart;
+  if (!ISSERVER) {
+    localcart = localStorage.getItem("cart")
+      ? JSON.parse(localStorage.getItem("cart"))
+      : [];
+  }
   useEffect(() => {
     async function getUserCart() {
       if (session.data) {

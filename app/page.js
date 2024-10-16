@@ -11,11 +11,9 @@ import SliderComponent from "./_components/SliderComponent";
 import Link from "next/link";
 import CollectionCatogry from "./_components/CollectionCatogry";
 import { getRating } from "./_lib/OurApis";
-import { auth } from "./_lib/Auth";
 
 async function page() {
   const ratings = await getRating();
-  const session = await auth();
   return (
     <main>
       <section className="flex items-center justify-between bg-primary-darkWhite h-full pt-10 sm:pt-0 sm:px-20 overflow-x-hidden flex-col sm:flex-row">
