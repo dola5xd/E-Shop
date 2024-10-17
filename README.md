@@ -8,11 +8,7 @@
 
 [https://e-shop-eta-inky.vercel.app/](https://e-shop-eta-inky.vercel.app/)
 
-<h2>Project Screenshots:</h2>
 
-<img src="" alt="project-screenshot" width="400" height="400/">
-
-  
   
 <h2>💻 Built with</h2>
 
