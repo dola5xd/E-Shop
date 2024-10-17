@@ -2,9 +2,9 @@ import { Integralcf } from "../layout";
 
 function Footer() {
   return (
-    <footer className="flex flex-col gap-3 sm:py-24 sm:pt-36 sm:px-20 px-10 bg-primary-darkWhite">
-      <div className="flex items-center gap-7 w-full py-5 flex-wrap sm:flex-nowrap">
-        <div className="flex flex-col gap-4 sm:w-2/5">
+    <footer className="flex flex-col gap-3 lg:py-24 lg:pt-36 lg:px-20 px-10 bg-primary-darkWhite">
+      <div className="flex items-center gap-7 w-full py-5 flex-wrap lg:flex-nowrap">
+        <div className="flex flex-col gap-4 lg:w-2/5">
           <h1 className={`${Integralcf.className} text-4xl`}>SHOP.CO</h1>
           <p className="text-balance">
             We have clothes that suits your style and which you’re proud to
@@ -97,7 +97,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col gap-4  sm:w-1/5">
+        <div className="flex flex-col gap-4  lg:w-1/5">
           <h1 className="text-black">Company</h1>
           <ul
             className="pr-6 flex flex-col gap-5 *:
@@ -109,7 +109,7 @@ function Footer() {
             <li>Career</li>
           </ul>
         </div>
-        <div className="flex flex-col gap-4  sm:w-1/5">
+        <div className="flex flex-col gap-4  lg:w-1/5">
           <h1 className="text-black">Help</h1>
           <ul
             className="pr-6 flex flex-col gap-5 *:
@@ -121,7 +121,7 @@ function Footer() {
             <li>Privacy Policy</li>
           </ul>
         </div>
-        <div className="flex flex-col gap-4  sm:w-1/5">
+        <div className="flex flex-col gap-4  lg:w-1/5">
           <h1 className="text-black">FAQ</h1>
           <ul
             className="pr-6 flex flex-col gap-5 *:
@@ -135,8 +135,8 @@ function Footer() {
         </div>
       </div>
       <hr className="h-[2px] w-full bg-primary-Black/10 my-5" />
-      <div className="flex items-center justify-between gap-7 flex-col sm:flex-row">
-        <p className="text-center sm:text-start text-sm">
+      <div className="flex items-center justify-between gap-7 flex-col lg:flex-row">
+        <p className="text-center lg:text-start text-sm">
           Shop.co © 2000-{new Date().getFullYear()}, All Rights Reserved @
           <span className={`${Integralcf.className} underline`}>
             <a href="https://github.com/dola5xd" target="_blank">

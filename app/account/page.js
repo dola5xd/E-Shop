@@ -12,8 +12,8 @@ async function page() {
   const { fullname, email } = await getUser(session?.user?.email);
   const firstName = fullname.split(" ").at(0);
   return (
-    <div className="md:px-20 pt-20">
-      <div className="flex flex-col md:flex-row items-center gap-3 mb-20 ">
+    <div className="lg:px-20 pt-20">
+      <div className="flex flex-col lg:flex-row items-center gap-3 mb-20 ">
         <span className="block relative aspect-square rounded-full h-10">
           <Image
             src={session?.user?.image}
@@ -26,15 +26,15 @@ async function page() {
           Hi, {firstName}
         </h1>
       </div>
-      <div className="flex justify-between flex-col md:flex-row px-5 md:px-0">
+      <div className="flex justify-between flex-col lg:flex-row px-5 lg:px-0">
         <h1
-          className={`${Integralcf.className} font-bold text-base md:text-2xl mb-5 md:mb-10`}
+          className={`${Integralcf.className} font-bold text-base lg:text-2xl mb-5 lg:mb-10`}
         >
           Uptade your information:
         </h1>
         <form
           action={changeInformation}
-          className="md:px-10 py-10 flex flex-col items-center md:items-start bg-primary-darkWhite rounded md:w-2/3 gap-7 [&>div]:flex [&>div]:flex-col md:[&>div]:flex-row [&>div]:gap-3 md:[&>div]:gap-0 [&>div]:items-center [&>div]:justify-between md:[&>div]:px-40 [&>div>label]:font-bold [&>div>label]:text-2xl [&>div>input]:py-2 [&>div>input]:pr-10 [&>div>input]:pl-4 [&>div>input]:rounded mb-10 md:mb-0"
+          className="lg:px-10 py-10 flex flex-col items-center lg:items-start bg-primary-darkWhite rounded lg:w-2/3 gap-7 [&>div]:flex [&>div]:flex-col lg:[&>div]:flex-row [&>div]:gap-3 lg:[&>div]:gap-0 [&>div]:items-center [&>div]:justify-between lg:[&>div]:px-40 [&>div>label]:font-bold [&>div>label]:text-2xl [&>div>input]:py-2 [&>div>input]:pr-10 [&>div>input]:pl-4 [&>div>input]:rounded mb-10 lg:mb-0"
         >
           <div>
             <label htmlFor="userName">Username:</label>

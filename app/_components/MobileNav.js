@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 function MobileNav() {
   const [openNav, setOpenNav] = useState(false);
   return (
-    <div className="sm:hidden">
+    <div className="lg:hidden">
       <span onClick={() => setOpenNav((pre) => !pre)}>
         <svg
           width="24"

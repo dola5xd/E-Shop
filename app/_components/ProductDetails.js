@@ -11,8 +11,8 @@ async function ProductDetails({ data }) {
   const colorsCodes = colors.split(",");
 
   return (
-    <div className="flex flex-col md:flex-row md:gap-20 h-full md:justify-between">
-      <div className="relative md:flex-1 w-full aspect-square md:h-[700px] rounded-lg">
+    <div className="flex flex-col xl:xflex-row xl:xgap-20 h-full xl:xjustify-between">
+      <div className="relative xl:xflex-1 w-full aspect-square xl:xh-[700px] rounded-lg">
         <Image
           src={images}
           alt={description}
@@ -20,13 +20,13 @@ async function ProductDetails({ data }) {
           className="object-cover object-center rounded-lg"
         />
       </div>
-      <div className="flex flex-col gap-4 md:gap-7 flex-1 py-10">
-        <h1 className={`${Integralcf.className} text-2xl md:text-4xl`}>
+      <div className="flex flex-col gap-4 xl:xgap-7 flex-1 py-10">
+        <h1 className={`${Integralcf.className} text-2xl xl:xtext-4xl`}>
           {title}
         </h1>
         <StarContainer rating={rating} showRating={true} />
         <h3 className="font-bold text-3xl">$ {price}</h3>
-        <p className="text-primary-Black/60 text-sm md:text-base">
+        <p className="text-primary-Black/60 text-sm xl:xtext-base">
           {description}
         </p>
         <hr className="h-[2px] w-full bg-primary-darkWhite" />

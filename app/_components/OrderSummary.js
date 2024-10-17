@@ -31,18 +31,18 @@ function OrderSummary({ isLogedIn }) {
       : " --";
 
   return (
-    <div className="flex flex-col gap-7 py-6 md:p-6 border border-black/20 rounded min-h-[200px] w-full md:w-1/2">
-      <h1 className="text-2xl md:text-3xl font-bold px-6 md:px-0">
+    <div className="flex flex-col gap-7 py-6 lg:p-6 border border-black/20 rounded min-h-[200px] w-full lg:w-1/2">
+      <h1 className="text-2xl lg:text-3xl font-bold px-6 lg:px-0">
         Order Summary
       </h1>
       <ul className="pr-5 flex flex-col gap-5 py-5 w-full px-3">
         <li>
-          <h3 className="text-base md:text-xl flex items-center justify-between">
+          <h3 className="text-base lg:text-xl flex items-center justify-between">
             SubTotal <span className="font-bold">${subTotal}</span>
           </h3>
         </li>
         <li>
-          <h3 className="text-base md:text-xl flex items-center justify-between">
+          <h3 className="text-base lg:text-xl flex items-center justify-between">
             Discount (-20%){" "}
             <span className="font-bold text-primary-redDiscount">
               - ${discountPrice}
@@ -50,23 +50,23 @@ function OrderSummary({ isLogedIn }) {
           </h3>
         </li>
         <li>
-          <h3 className="text-base md:text-xl flex items-center justify-between">
+          <h3 className="text-base lg:text-xl flex items-center justify-between">
             Delivery Fee{" "}
             <span className="font-bold">${DELIVERY_FEE.toFixed(2)}</span>
           </h3>
         </li>
         <hr className="h-[1px] w-full bg-black" />
         <li className="flex flex-col gap-5">
-          <h3 className="text-base md:text-xl flex items-center justify-between">
+          <h3 className="text-base lg:text-xl flex items-center justify-between">
             Total <span className="font-bold">${Total}</span>
           </h3>
-          <div className="flex flex-col relative md:static md:flex-row items-center gap-3 w-full">
+          <div className="flex flex-col relative lg:static lg:flex-row items-center gap-3 w-full">
             <input
               type="text"
               placeholder="Add promo code"
-              className="w-full bg-primary-darkWhite rounded-3xl text-lg py-4 px-5 pl-10 placeholder:text-sm md:placeholder:text-base"
+              className="w-full bg-primary-darkWhite rounded-3xl text-lg py-4 px-5 pl-10 placeholder:text-sm lg:placeholder:text-base"
             />
-            <span className="absolute translate-x-3 -translate-y-1/2 md:translate-y-0 left-0 top-1/4 md:left-auto md:top-auto z-30">
+            <span className="absolute translate-x-3 -translate-y-1/2 lg:translate-y-0 left-0 top-1/4 lg:left-auto lg:top-auto z-30">
               <svg
                 width="22"
                 height="22"
@@ -81,7 +81,7 @@ function OrderSummary({ isLogedIn }) {
                 />
               </svg>
             </span>
-            <button className="bg-black duration-500 hover:bg-black/60 text-white text-lg font-bold py-3 px-7 rounded-3xl w-full md:w-auto">
+            <button className="bg-black duration-500 hover:bg-black/60 text-white text-lg font-bold py-3 px-7 rounded-3xl w-full lg:w-auto">
               Apply
             </button>
           </div>
@@ -90,7 +90,7 @@ function OrderSummary({ isLogedIn }) {
           <li>
             {!isLogedIn ? (
               <Link href="/login">
-                <button className="bg-black duration-500 hover:bg-black/60 text-white text-base md:text-lg font-bold py-4 px-5 md:px-7 rounded-3xl w-full flex items-center gap-4 justify-center [&>span]:duration-1000 [&>span]:hover:translate-x-full">
+                <button className="bg-black duration-500 hover:bg-black/60 text-white text-base lg:text-lg font-bold py-4 px-5 lg:px-7 rounded-3xl w-full flex items-center gap-4 justify-center [&>span]:duration-1000 [&>span]:hover:translate-x-full">
                   Login to Checkout{" "}
                   <span>
                     <svg
@@ -110,7 +110,7 @@ function OrderSummary({ isLogedIn }) {
               </Link>
             ) : (
               <button
-                className="bg-black duration-500 hover:bg-black/60 text-white text-base md:text-lg font-bold py-4 px-5 md:px-7 rounded-3xl w-full flex items-center gap-4 justify-center [&>span]:duration-1000 [&>span]:hover:translate-x-full"
+                className="bg-black duration-500 hover:bg-black/60 text-white text-base lg:text-lg font-bold py-4 px-5 lg:px-7 rounded-3xl w-full flex items-center gap-4 justify-center [&>span]:duration-1000 [&>span]:hover:translate-x-full"
                 onClick={async () => {
                   const cart = await submitCart();
                   setCart(cart);

@@ -37,7 +37,7 @@ function AddToCart({ isLogedIn, data }) {
 
     toast(
       (t) => (
-        <span className="md:text-balance text-wrap text-sm md:text-base">
+        <span className="lg:text-balance text-wrap text-sm lg:text-base">
           This product has been added succesfully! go to{" "}
           <Link href="/cart" className="underline">
             your cart
@@ -66,8 +66,8 @@ function AddToCart({ isLogedIn, data }) {
   }
 
   return (
-    <div className="flex items-center gap-7 md:gap-4 flex-col md:flex-row">
-      <div className="flex-1 bg-primary-darkWhite py-3 px-5 font-bold rounded-full flex items-center justify-between text-lg w-full md:w-auto">
+    <div className="flex items-center gap-7 lg:gap-4 flex-col lg:flex-row">
+      <div className="flex-1 bg-primary-darkWhite py-3 px-5 font-bold rounded-full flex items-center justify-between text-lg w-full lg:w-auto">
         <button
           className="text-3xl"
           onClick={() => setCount((prev) => (prev > 0 ? prev - 1 : 0))}
@@ -84,7 +84,7 @@ function AddToCart({ isLogedIn, data }) {
       </div>
 
       <button
-        className="bg-primary-Black py-3 px-20 text-sm md:text-base w-full md:w-auto md:px-20 text-primary-White font-bold rounded-full relative hover:bg-primary-darkWhite hover:text-primary-Black duration-500 border border-primary-Black flex-1"
+        className="bg-primary-Black py-3 px-20 text-sm lg:text-base w-full lg:w-auto lg:px-20 text-primary-White font-bold rounded-full relative hover:bg-primary-darkWhite hover:text-primary-Black duration-500 border border-primary-Black flex-1"
         onClick={handelProduct}
       >
         Add To Card

@@ -14,7 +14,7 @@ function Search() {
 
   return (
     <form
-      className="relative w-1/3 hidden sm:block"
+      className="relative w-1/3 hidden lg:block"
       onSubmit={(e) => handelSearch(e)}
     >
       <input

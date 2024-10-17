@@ -5,7 +5,7 @@ export default function Loading() {
   return (
     <Skeleton
       count={2}
-      containerClassName="w-full h-full flex flex-col md:flex-row gap-7"
+      containerClassName="w-full h-full flex flex-col lg:flex-row gap-7"
       className="min-h-[260px] rounded-xl"
     />
   );

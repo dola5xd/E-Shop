@@ -2,7 +2,7 @@ import { Rating } from "@mui/material";
 
 function StarContainer({ rating }) {
   return (
-    <div className="flex items-center gap-1 sm:gap-3">
+    <div className="flex items-center gap-1 lg:gap-3">
       <Rating
         readOnly
         size="10"
@@ -11,7 +11,7 @@ function StarContainer({ rating }) {
         name="product-feedback"
       />
 
-      <span className="text-primary-Black text-opacity-60 text-sm sm:text-lg">
+      <span className="text-primary-Black text-opacity-60 text-sm lg:text-lg">
         {rating ? rating : "--"}/
         <span className="text-primary-Black text-opacity-100">10</span>
       </span>

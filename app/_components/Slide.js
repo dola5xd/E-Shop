@@ -4,9 +4,9 @@ import "slick-carousel/slick/slick-theme.css";
 function Slide({ data }) {
   const { name, message, rating } = data;
   return (
-    <div className="border-2 border-primary-darkWhite px-5 py-5 sm:py-10 sm:px-10 rounded-3xl mx-3 flex flex-col gap-4 min-h-[200px] sm:min-h-[300px]">
+    <div className="border-2 border-primary-darkWhite px-5 py-5 lg:py-10 lg:px-10 rounded-3xl mx-3 flex flex-col gap-4 min-h-[200px] xl:min-h-[300px]">
       <StarContainer rating={rating} />
-      <h1 className="flex items-center gap-3 text-primary-Black font-bold text-xl sm:text-3xl">
+      <h1 className="flex items-center gap-3 text-primary-Black font-bold text-xl md:text-2xl lg:text-3xl">
         {name}
         <span>
           <svg
@@ -23,7 +23,9 @@ function Slide({ data }) {
           </svg>
         </span>
       </h1>
-      <p className="text-xs sm:text-base text-balance">"{message}”</p>
+      <p className="text-xs md:text-sm lg:text-base text-balance">
+        "{message}”
+      </p>
     </div>
   );
 }

@@ -18,7 +18,7 @@ async function Header() {
   return (
     <header>
       {!user && (
-        <div className="bg-primary-Black text-primary-White text-center py-2 text-xs sm:text-base">
+        <div className="bg-primary-Black text-primary-White text-center py-2 text-xs lg:text-base">
           Sign up and get 20% off to your first order.
           <Link href="/login" className="underline ml-1">
             Login Now
@@ -26,16 +26,16 @@ async function Header() {
         </div>
       )}
       <nav
-        className={`flex items-center gap-7 sm:gap-0 justify-between  text-[1.5rem] px-5  sm:px-10 py-5`}
+        className={`flex items-center gap-7 lg:gap-0 justify-between  text-[1.5rem] px-5  lg:px-10 py-5`}
       >
         <div className="flex items-center gap-3">
           <MobileNav />
-          <h1 className={`${Integralcf.className} text-lg sm:text-[2.5rem]`}>
+          <h1 className={`${Integralcf.className} text-lg lg:text-[2.5rem]`}>
             <Link href="/">SHOP.CO</Link>
           </h1>
         </div>
 
-        <ul className="sm:flex items-center gap-4 text-[1.3rem] hidden">
+        <ul className="lg:flex items-center gap-4 text-[1.3rem] hidden">
           <li>
             <Link href="/collection">Shop</Link>
           </li>
@@ -48,7 +48,7 @@ async function Header() {
         </ul>
 
         <Search />
-        <div className="flex items-center gap-3 sm:gap-7">
+        <div className="flex items-center gap-3 lg:gap-7">
           <SearchMobile />
           <CartIcon />
           <Account fullname={user?.fullname} />

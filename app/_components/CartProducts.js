@@ -8,7 +8,7 @@ function CartProducts() {
   const { cart } = useCart();
 
   return (
-    <ul className="flex flex-col gap-7 p-4 border border-black/20 rounded flex-1 md:min-h-[325px] w-full md:w-auto">
+    <ul className="flex flex-col gap-7 p-4 border border-black/20 rounded flex-1 xl:min-h-[325px] w-full lg:w-auto">
       {cart.length > 0 ? (
         cart
           .sort((prev, cur) => prev.added_at - cur.added_at)

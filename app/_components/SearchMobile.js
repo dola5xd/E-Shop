@@ -15,7 +15,7 @@ function SearchMobile() {
   }
 
   return (
-    <form className="sm:hidden" onSubmit={(e) => handelSearch(e)}>
+    <form className="lg:hidden" onSubmit={(e) => handelSearch(e)}>
       {" "}
       <Image
         src="/assets/Svg/search-icon.svg"

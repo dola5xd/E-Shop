@@ -102,7 +102,7 @@ function AllItems({ products }) {
   const filterProducts = getProductFilterd(products);
 
   return filterProducts.length > 0 ? (
-    <div className="flex flex-wrap gap-y-7 md:gap-7 justify-center md:justify-normal">
+    <div className="flex flex-wrap gap-y-7 md:gap-7 justify-center xl:justify-normal">
       {filterProducts.map((product) => (
         <ListItem key={product.id} product={product} />
       ))}

@@ -19,7 +19,7 @@ function CartIcon() {
           height="25"
         />
         {cart.length !== 0 && (
-          <span className="absolute -top-5 -right-2 md:-right-4 text-lg text-white bg-black text-center w-6 h-6 rounded-full flex items-center justify-center">
+          <span className="absolute -top-5 -right-2 lg:-right-4 text-lg text-white bg-black text-center w-6 h-6 rounded-full flex items-center justify-center">
             {productsCounts}
           </span>
         )}

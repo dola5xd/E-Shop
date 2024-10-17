@@ -41,7 +41,7 @@ function CartProduct({ item }) {
   }, [newCount, count, setCart]);
 
   return (
-    <li className="flex items-center gap-7 md:gap-4 md:py-3 w-full flex-col md:flex-row ">
+    <li className="flex items-center gap-7 lg:gap-4 lg:py-3 w-full flex-col lg:flex-row ">
       <div className="relative aspect-square h-[150px]">
         <Link href={`/product/${id}`}>
           <Image
@@ -52,14 +52,14 @@ function CartProduct({ item }) {
           />
         </Link>
       </div>
-      <div className="flex flex-col gap-5 md:w-1/3 md:gap-3">
+      <div className="flex flex-col gap-5 lg:w-1/3 lg:gap-3">
         <h1 className="text-base font-bold text-nowrap">{title}</h1>
 
         <p className="font-bold text-2xl">
           $ {Number(newCount * price).toFixed(2)}
         </p>
       </div>
-      <div className="flex items-center md:flex-col md:items-end gap-5 md:gap-12 h-full w-full md:w-1/3">
+      <div className="flex items-center lg:flex-col lg:items-end gap-5 lg:gap-12 h-full w-full lg:w-1/3">
         <button
           onClick={async () => {
             handelDelete();
@@ -79,7 +79,7 @@ function CartProduct({ item }) {
             />
           </svg>
         </button>
-        <div className="flex-1 bg-primary-darkWhite py-3 px-5 font-bold rounded-full flex items-center justify-between text-lg w-full md:w-[calc(100%_-_20px)]">
+        <div className="flex-1 bg-primary-darkWhite py-3 px-5 font-bold rounded-full flex items-center justify-between text-lg w-full xl:w-[calc(100%_-_20px)]">
           {" "}
           <button
             className="text-3xl"
